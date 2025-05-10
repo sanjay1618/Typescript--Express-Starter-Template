@@ -1,0 +1,6 @@
+# Node modules (packages installed with npm)
+node_modules/
+
+# Compiled JavaScript output
+dist/
+
