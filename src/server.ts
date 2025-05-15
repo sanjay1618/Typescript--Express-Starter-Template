@@ -1,7 +1,6 @@
 import express from'express';
 import {serverConfig} from './config';
-import { pingHandler } from './controller/ping.controller';
-import {log1, log2, log3} from './middleware/logTemp.middleware';
+import userRoute from './routes/users.routes';
 
 
 console.log(serverConfig);
@@ -9,10 +8,10 @@ console.log(serverConfig);
 const app = express();
 const PORT : number = 3000;
 
-app.get('/', pingHandler);
+//Parses the incoming json and adds the body to res.body property
+app.use(express.json());
 
-app.get('/route', log1,log2, log3);
-    
+app.use('/users',userRoute ); // So, when a users hits the path starting with /users it mounts to the userRoute
 
 app.listen(PORT, ()=>{
    console.log(`Server is running on http://localhost:${PORT}`);
