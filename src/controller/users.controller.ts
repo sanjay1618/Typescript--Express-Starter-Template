@@ -21,8 +21,8 @@ export const logger3 = (req : Request, res: Response, next : NextFunction) => {
     next();
 }
 
-export const logger4 = (req : Request, res : Response, next : NextFunction) => {
+export const logger4 = (req: Request, res: Response, next: NextFunction) => {
     console.log("Logging the last method");
-    res.send("The response to the logger 4");
-}
-
+    const response = req.body;
+    res.json(response); // sends the body back as JSON
+};
